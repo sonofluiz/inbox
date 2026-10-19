@@ -9,7 +9,7 @@ type AppStep = "onboard" | "inbox";
 const DEFAULT_SETTINGS: Settings = {
   provider: "openrouter",
   apiKey: "",
-  model: "anthropic/claude-3-haiku",
+  model: "meta-llama/llama-3.3-70b-instruct:free",
   githubToken: "",
 };
 
@@ -430,7 +430,7 @@ export default function Home() {
                       key={p}
                       onClick={() => {
                         const defaults: Record<string, string> = {
-                          openrouter: "anthropic/claude-3-haiku",
+                          openrouter: "meta-llama/llama-3.3-70b-instruct:free",
                           anthropic: "claude-3-haiku-20240307",
                           openai: "gpt-4o-mini",
                         };
@@ -451,6 +451,11 @@ export default function Home() {
                         : p === "anthropic"
                           ? "Anthropic"
                           : "OpenAI"}
+                      {p === "openrouter" && (
+                        <span className="block text-[10px] text-[#5a8a5a]">
+                          FREE
+                        </span>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -460,7 +465,7 @@ export default function Home() {
                   onChange={(e) =>
                     setSettings((prev) => ({ ...prev, apiKey: e.target.value }))
                   }
-                  placeholder="API key"
+                  placeholder="API key (free models available)"
                   className="w-full bg-[#0a1a0a] text-[#33ff33] font-mono text-sm px-3 py-2 rounded border-2 border-[#3a4a3a] focus:border-[#5a6a5a] outline-none placeholder:text-[#2a5a2a] mb-2"
                 />
                 <input
