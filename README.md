@@ -6,6 +6,12 @@ Every GitHub notification is a 400-line diff. Nobody reads them — not because 
 
 Built at [All Things Open 2026](https://2026.allthingsopen.org) in the "AI Agents & Vibe Coding" workshop.
 
+## Demo
+
+**Live production:** https://inbox-azure.vercel.app
+
+Try it with a public repo like `torvalds/linux` and a free OpenRouter API key (see [Getting started](#getting-started)).
+
 ## How it works
 
 1. **Triage (rule-based, no keys):** fetches commits, PRs, review requests and issues from any GitHub repo. Classifies each as *informational* (a merge happened) or an *obligation* (someone is waiting on you). Flags staleness, size, and first-time contributors.
